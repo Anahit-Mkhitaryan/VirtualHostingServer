@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Interface</title>
+</head>
+<body>
+<h1>Admin Interface</h1>
+<form method='post'>
+    Domain: <input type='text' name='domain'><br>
+    Directory: <input type='text' name='directory'><br>
+    <input type='submit' value='Add'>
+</form>
+<h2>Current Hosts</h2>
+<ul id="hostsList"></ul>
+<script>
+    fetch('/admin')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('hostsList').innerHTML = data;
+        });
+</script>
+</body>
+</html>
